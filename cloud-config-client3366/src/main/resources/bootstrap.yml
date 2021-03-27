@@ -1,0 +1,32 @@
+server:
+  port: 3366
+
+spring:
+  application:
+    name: cloud-config-client3366
+  rabbitmq:
+    host: emrs.xyz
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    config:
+      uri: http://localhost:3344
+      name: config
+      label: main
+      profile: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://emrs.xyz:7001/eureka,http://emrs.xyz:7002/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    instance-id: config-client3355
+    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

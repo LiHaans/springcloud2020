@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: cloud-gateway-9528
+  cloud:
+    gateway:
+      routes:
+        - id: route1
+          uri: http://localhost:8001
+          predicates:
+            - Path=/payment/find/**
+        - id: path-mil
+          uri: http://news.baidu.com/mil
+          predicates:
+            - Path=/mil
+        - id: path-finance
+          uri: http://news.baidu.com/finance
+          predicates:
+            - Path=/finance
+
+        - id: payment-service
+          uri: lb://cloud-payment-service
+          predicates:
+            - Path=/payment/get/**
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+
+
+server:
+  port: 9528
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://emrs.xyz:7001/eureka,http://emrs.xyz:7002/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: true
+    instance-id: cloud-gateway-9528
+

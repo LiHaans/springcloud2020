@@ -1,0 +1,37 @@
+server:
+  port: 9902
+spring:
+  application:
+    name: cloud-stream-consumer
+
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: emrs.xyz
+                port: 5672
+                username: guest
+                password: guest
+
+
+      bindings:
+        input:
+          destination: studyExchange
+          content-type: application/json
+          binder: defaultRabbit
+          group: groupA
+eureka:
+  client:
+    service-url:
+      defaultZone: http://emrs.xyz:7001/eureka,http://emrs.xyz:7002/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5
+    instance-id: stream-consumer9902

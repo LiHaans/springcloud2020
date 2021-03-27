@@ -10,9 +10,39 @@
   <modules>
     <module>cloud-provider-payment8001</module>
     <module>cloud-consumer-order80</module>
+      <module>cloud-eureka-server7001</module>
+      <module>cloud-eureka-server7002</module>
+      <module>cloud-provider-payment8002</module>
+      <module>cloud-provider-payment8004</module>
+      <module>cloud-consumerzk-order80</module>
+      <module>cloud-providerconsul-payment8006</module>
+      <module>cloud-consumerconsul-order80</module>
+      <module>cloud-consumer-feign-order80</module>
+      <module>cloud-provider-hystrix-payment8001</module>
+      <module>cloud-consumer-feign-hystrix-order80</module>
+      <module>cloud-consumer-hystrix-dashboard9001</module>
+      <module>cloud-gateway-gateway9527</module>
+      <module>cloud-stream-rabbitmq-provider8801</module>
+    <module>cloud-stream-rabbitmq-consumer8802</module>
+    <module>cloud-stream-rabbitmq-consumer8803</module>
+      <module>cloud-gatewat-gateway9528</module>
+      <module>cloud-config-center3344</module>
+      <module>cloud-config-client</module>
+      <module>cloud-config-client3366</module>
+      <module>cloud-stream-rabbitmq-provider9901</module>
+      <module>cloud-stream-rabbitmq-consumer9902</module>
+      <module>cloud-stream-rabbitmq-consumer9903</module>
+      <module>cloudalibaba-provider-payment9001</module>
+    <module>cloudalibaba-consumer-order83</module>
   </modules>
   <packaging>pom</packaging>
 
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.2.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
 
   <!-- 统一管理jar包版本 -->
   <properties>
@@ -90,7 +120,7 @@
   </dependencyManagement>
 
   <build>
-    <plugins>
+    <!--<plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
@@ -99,7 +129,7 @@
           <addResources>true</addResources>
         </configuration>
       </plugin>
-    </plugins>
+    </plugins>-->
   </build>
 
 </project>

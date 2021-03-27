@@ -1,0 +1,11 @@
+server:
+  port: 80
+
+spring:
+  cloud:
+    zookeeper:
+      connect-string: emrs.xyz:2181
+      discovery:
+        instance-id: order80
+  application:
+    name: cloud-consumer-order

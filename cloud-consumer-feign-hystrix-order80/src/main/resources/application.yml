@@ -1,0 +1,33 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-provider-hystrix-order
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://emrs.xyz:7001/eureka,http://emrs.xyz:7002/eureka
+logging:
+  level:
+    com.sy.springcloud.service.PaymentFeignHystrixService: debug
+
+ribbon:
+  ReadTimeout: 5500
+  ConnectTimeout: 5500
+
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000 # 降级时间
