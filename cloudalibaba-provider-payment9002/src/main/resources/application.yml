@@ -7,13 +7,13 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: emrs.xyz:8848
+        server-addr: 192.168.120.201:8848
 
-  zipkin:
-    base-url: http://localhost:9411
-    sleuth:
-      sampler:
-        probability: 1
+#  zipkin:
+#    base-url: http://localhost:9411
+#    sleuth:
+#      sampler:
+#        probability: 1
 
 management:
   endpoints:

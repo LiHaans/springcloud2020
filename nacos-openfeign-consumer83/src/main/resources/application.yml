@@ -1,0 +1,14 @@
+server:
+  port: 83
+
+spring:
+  application:
+    name: nacos-openfeign-consumer
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.120.201:8848
+feign:
+  hystrix:
+    enabled: true   # 开启hystrix
